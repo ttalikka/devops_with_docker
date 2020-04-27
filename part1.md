@@ -85,9 +85,46 @@ Removing intermediate container 84b6da126c95
 ---> 43ca5d34e5f5
 Successfully built 43ca5d34e5f5
 Successfully tagged docker-clock:latest
+
 ttalikka@apro13-5XHV2F > ~/devops_with_docker >  master > docker run docker-clock
 1
 2
 3
 ...
+```
+
+### 1.7
+
+```shell
+ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker build -t curler 1.7
+Sending build context to Docker daemon  3.072kB
+Step 1/5 : FROM ubuntu:16.04
+---> 005d2078bdfa
+Step 2/5 : RUN apt-get update && apt-get install -y curl
+---> Using cache
+---> 6cb2fc1754fe
+Step 3/5 : COPY curler.sh .
+---> ed95884d7b9b
+Step 4/5 : RUN chmod +x ./curler.sh
+---> Running in 45a594ad689c
+Removing intermediate container 45a594ad689c
+---> cd08b6a0f179
+Step 5/5 : CMD ["./curler.sh"]
+---> Running in b756dea55929
+Removing intermediate container b756dea55929
+---> 2b1a5e8b7179
+Successfully built 2b1a5e8b7179
+Successfully tagged curler:latest
+
+ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker run --rm -it curler
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
 ```
