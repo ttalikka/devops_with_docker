@@ -71,3 +71,23 @@ Searching..
 <p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
 </body></html>
 ```
+
+### 1.6
+
+```
+ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker build -t docker-clock 1.6
+Sending build context to Docker daemon  2.048kB
+Step 1/2 : FROM devopsdockeruh/overwrite_cmd_exercise
+---> 3d2b622b1849
+Step 2/2 : CMD ["-c"]
+---> Running in 84b6da126c95
+Removing intermediate container 84b6da126c95
+---> 43ca5d34e5f5
+Successfully built 43ca5d34e5f5
+Successfully tagged docker-clock:latest
+ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker run docker-clock
+1
+2
+3
+...
+```
