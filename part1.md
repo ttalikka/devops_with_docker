@@ -96,7 +96,7 @@ ttalikka@apro13-5XHV2F > ~/devops_with_docker >  master > docker run docker-cloc
 ### 1.7
 
 ```shell
-ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker build -t curler 1.7
+ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > docker build -t curler 1.7
 Sending build context to Docker daemon  3.072kB
 Step 1/5 : FROM ubuntu:16.04
 ---> 005d2078bdfa
@@ -116,7 +116,7 @@ Removing intermediate container b756dea55929
 Successfully built 2b1a5e8b7179
 Successfully tagged curler:latest
 
-ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker run --rm -it curler
+ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > docker run --rm -it curler
 Input website:
 helsinki.fi
 Searching..
