@@ -53,3 +53,21 @@ Secret message is:
 "Docker is easy"
 Mon, 27 Apr 2020 07:12:35 GMT
 ```
+
+### 1.5
+
+```
+ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker run --rm -it --name curl ubuntu sh -c 'apt update; apt install curl -y; echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+... APT snip ...
+done.
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+```
