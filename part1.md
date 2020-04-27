@@ -37,3 +37,19 @@ Give me the password: basics
 You found the correct password. Secret message is:
 "This is the secret message"
 ```
+
+### 1.4
+
+```
+ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker run -d devopsdockeruh/exec_bash_exercise
+64a68ef7fd8ae027dd839177cd0acf687023e7711c8e252a92d684caae996cc7
+ttalikka@apro13-5XHV2F  ~/devops_with_docker   master  docker exec -it 64 bash
+root@64a68ef7fd8a:/usr/app# tail -f logs.txt
+Mon, 27 Apr 2020 07:12:20 GMT
+Mon, 27 Apr 2020 07:12:23 GMT
+Mon, 27 Apr 2020 07:12:26 GMT
+Mon, 27 Apr 2020 07:12:29 GMT
+Secret message is:
+"Docker is easy"
+Mon, 27 Apr 2020 07:12:35 GMT
+```
