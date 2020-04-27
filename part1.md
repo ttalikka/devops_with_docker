@@ -128,3 +128,30 @@ Searching..
 <p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
 </body></html>
 ```
+
+### 1.8
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > touch 1.8/logs.txt
+
+ ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > docker run -v $(pwd)/1.8/logs.txt:/usr/app/logs.txt devopsdockeruh/first_volume_exercise
+(node:1) ExperimentalWarning: The fs.promises API is experimental
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+^CClosing file
+
+ ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > cat 1.8/logs.txt
+Mon, 27 Apr 2020 11:21:07 GMT
+Mon, 27 Apr 2020 11:21:10 GMT
+Mon, 27 Apr 2020 11:21:13 GMT
+Mon, 27 Apr 2020 11:21:16 GMT
+Secret message is:
+"Volume bind mount is easy"
+Mon, 27 Apr 2020 11:21:22 GMT
+Mon, 27 Apr 2020 11:21:25 GMT
+```
