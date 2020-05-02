@@ -161,8 +161,28 @@ Mon, 27 Apr 2020 11:21:25 GMT
 ```shell
 ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > docker run -d -p 80 devopsdockeruh/ports_exercise
 55d3c89af01f5c00df5855f239451cf89df3d4faf3a669876b8c79bc932cd3c0
+
  ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > docker port 55
 80/tcp -> 0.0.0.0:32768
+
  ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > curl localhost:32768
 Ports configured correctly!!%
+```
+
+### 1.10
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.10 > master > docker build -t frontend-example .
+Sending build context to Docker daemon  910.3kB
+...
+Successfully built 4603b88a0a9d
+Successfully tagged frontend-example:latest
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.10 > master > docker run -p 5000:5000 frontend-example
+
+> frontend-example-docker@1.0.0 start /frontend-example
+> webpack --mode production && serve -s -l 5000 dist
+...
+INFO: Accepting connections at http://localhost:5000
+
 ```
