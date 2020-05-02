@@ -186,3 +186,28 @@ ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.10 > master > docker run -p 5000
 INFO: Accepting connections at http://localhost:5000
 
 ```
+
+### 1.11
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.11 > master > docker build -t backend-example .
+Sending build context to Docker daemon  371.2kB
+...
+Successfully built 3c71ee9989d4
+Successfully tagged backend-example:latest
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.11 > master > touch logs.txt
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.11 > master > docker run -p 8000:8000 -v $(pwd)/logs.txt:/backend-example/logs.txt backend-example
+
+> backend-example-docker@1.0.0 start /backend-example
+> cross-env NODE_ENV=production node index.js
+
+Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
+Started on port 8000
+^C%
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.11 > master > cat logs.txt
+5/2/2020, 1:50:08 PM: Connection received in root
+5/2/2020, 1:50:09 PM: Connection received in root
+```
