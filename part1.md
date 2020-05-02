@@ -211,3 +211,26 @@ ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.11 > master > cat logs.txt
 5/2/2020, 1:50:08 PM: Connection received in root
 5/2/2020, 1:50:09 PM: Connection received in root
 ```
+
+### 1.12
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.10 > master ● > docker build -t frontend-example .
+Sending build context to Docker daemon  910.3kB
+...
+Successfully built f90d592279d7
+Successfully tagged frontend-example:latest
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.10 > master ● > docker run -d -p 5000:5000 frontend-example
+73420155ca8ca416a9c14783f8a9338b01e6f19fda49c098536de91638d3a719
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.10 > master ● > cd ../1.11
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.11 > master ● > docker build -t backend-example .
+...
+Successfully built 302c2005d086
+Successfully tagged backend-example:latest
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.11 > master ● > docker run -d -p 8000:8000 -v $(pwd)/logs.txt:/backend-example/logs.txt backend-example
+62261118367bae3624ed60e5b6ead962e121e182cc8463ff09eaf3368056e6e1
+```
