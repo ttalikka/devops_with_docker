@@ -155,3 +155,14 @@ Secret message is:
 Mon, 27 Apr 2020 11:21:22 GMT
 Mon, 27 Apr 2020 11:21:25 GMT
 ```
+
+### 1.9
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > docker run -d -p 80 devopsdockeruh/ports_exercise
+55d3c89af01f5c00df5855f239451cf89df3d4faf3a669876b8c79bc932cd3c0
+ ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > docker port 55
+80/tcp -> 0.0.0.0:32768
+ ttalikka@apro13-5XHV2F > ~/devops_with_docker > master > curl localhost:32768
+Ports configured correctly!!%
+```
