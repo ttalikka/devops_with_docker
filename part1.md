@@ -234,3 +234,13 @@ Successfully tagged backend-example:latest
 ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.11 > master ● > docker run -d -p 8000:8000 -v $(pwd)/logs.txt:/backend-example/logs.txt backend-example
 62261118367bae3624ed60e5b6ead962e121e182cc8463ff09eaf3368056e6e1
 ```
+
+### 1.13
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.13 > master > docker build -t spring .
+150f7b59ce24
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.13 > master > docker run -d -p 8080:8080 spring
+07c7adddcb5750a2c947ffe9eee861193a3712b3d262a3eeefea5dabb591482a
+```
