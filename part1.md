@@ -244,3 +244,15 @@ ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.13 > master > docker build -t sp
 ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.13 > master > docker run -d -p 8080:8080 spring
 07c7adddcb5750a2c947ffe9eee861193a3712b3d262a3eeefea5dabb591482a
 ```
+
+### 1.14
+
+```shell
+ ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.14 > master > docker build -t rails .
+
+Successfully built 8ed0f33bf13a
+Successfully tagged rails:latest
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/1.14 > master ● > docker run -d -p 3000:3000 rails
+57f56b20707b68dd63322aaac045106db0fc4b4daccf48261ea5555f40a02bb4
+```
