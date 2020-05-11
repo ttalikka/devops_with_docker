@@ -17,3 +17,23 @@ ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.1 > master > cat logs.txt
 Mon, 11 May 2020 07:22:17 GMT
 Mon, 11 May 2020 07:22:20 GMT
 ```
+
+### 2.2
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.2 > master > docker-compose up -d
+...
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.2 > master > curl localhost:80
+Ports configured correctly!!
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.2 > master > cat docker-compose.yml
+version: '3.5'
+
+services:
+ ports_exercise:
+   image: devopsdockeruh/ports_exercise
+   container_name: ports
+   ports:
+     - 80:80
+```
