@@ -37,3 +37,20 @@ services:
    ports:
      - 80:80
 ```
+
+### 2.3
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.3 > master ● > cat docker-compose.yml
+version: '3.5'
+
+services:
+ backend:
+   build: ../1.10
+   ports:
+     - 5000:5000
+ frontend:
+   build: ../1.11
+   ports:
+     - 8000:8000
+```
