@@ -45,11 +45,11 @@ ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.3 > master ● > cat docker-comp
 version: '3.5'
 
 services:
- backend:
+ frontend:
    build: ../1.10
    ports:
      - 5000:5000
- frontend:
+ backend:
    build: ../1.11
    ports:
      - 8000:8000
