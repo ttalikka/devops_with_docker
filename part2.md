@@ -60,3 +60,26 @@ services:
 ```shell
  ttalikka@apro13-5XHV2F > ~/devops_with_docker/scaling-exercise > master > docker-compose up --scale compute=3
 ```
+
+### 2.5
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.5 > master > cat docker-compose.yml
+version: '3.5'
+
+services:
+ frontend:
+   build: ../1.10
+   ports:
+     - 5000:5000
+ backend:
+   build: ../1.11
+   ports:
+     - 8000:8000
+   environment:
+     - REDIS=redis
+ redis:
+   image: redis:latest
+   ports:
+     - 6379:6379
+```
