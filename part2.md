@@ -54,3 +54,9 @@ services:
    ports:
      - 8000:8000
 ```
+
+### 2.4
+
+```shell
+ ttalikka@apro13-5XHV2F > ~/devops_with_docker/scaling-exercise > master > docker-compose up --scale compute=3
+```
