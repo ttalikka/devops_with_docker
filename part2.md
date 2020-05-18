@@ -250,3 +250,89 @@ services:
    volumes:
      - ./database:/var/lib/postgresql/data
 ```
+
+### 2.10
+
+Changed ENV API_URL in frontend Dockerfile from http://localhost:8000 to http://localhost/api/
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.10 > master > cat docker-compose.yml
+version: '3.5'
+
+services:
+
+  frontend:
+    build: ../1.10
+    ports:
+      - 5000:5000
+
+  backend:
+    build: ../1.11
+    ports:
+      - 8000:8000
+    environment:
+      REDIS: redis
+      DB_USERNAME: admin
+      DB_PASSWORD: testi123
+      DB_NAME: devops_with_docker
+      DB_HOST: postgres
+    depends_on:
+      - postgres
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+
+  postgres:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: testi123
+      POSTGRES_USER: admin
+      POSTGRES_DB: devops_with_docker
+    volumes:
+      - database:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
+
+volumes:
+  database:
+
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.10 > master > cat ../1.10/Dockerfile
+  FROM ubuntu:latest
+
+  COPY frontend-example-docker frontend-example
+  WORKDIR /frontend-example
+  EXPOSE 5000
+
+  RUN apt-get update && apt-get install -y curl
+  RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+  RUN apt-get update && apt-get install -y nodejs
+  RUN node -v && npm -v
+  ENV API_URL=http://localhost/api/
+  RUN npm install
+  CMD npm start
+
+talikka@apro13-5XHV2F > ~/devops_with_docker/2.10 > master > cat ../1.11/Dockerfile
+  FROM ubuntu:latest
+
+  COPY backend-example-docker backend-example
+  WORKDIR /backend-example
+  EXPOSE 8000
+
+  RUN apt-get update && apt-get install -y curl
+  RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+  RUN apt-get update && apt-get install -y nodejs
+  RUN node -v && npm -v
+  ENV FRONT_URL=http://localhost:5000
+  RUN npm install
+  CMD npm start
+```
