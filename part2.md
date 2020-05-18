@@ -206,3 +206,47 @@ services:
 volumes:
   database:
 ```
+
+### 2.9
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.9 > master > cat docker-compose.yml
+version: '3.5'
+
+services:
+
+ frontend:
+   build: ../1.10
+   ports:
+     - 5000:5000
+
+ backend:
+   build: ../1.11
+   ports:
+     - 8000:8000
+   environment:
+     REDIS: redis
+     DB_USERNAME: admin
+     DB_PASSWORD: testi123
+     DB_NAME: devops_with_docker
+     DB_HOST: postgres
+   depends_on:
+     - postgres
+
+ redis:
+   image: redis:latest
+   ports:
+     - 6379:6379
+   volumes:
+     - ./redis:/data
+
+ postgres:
+   image: postgres:latest
+   restart: unless-stopped
+   environment:
+     POSTGRES_PASSWORD: testi123
+     POSTGRES_USER: admin
+     POSTGRES_DB: devops_with_docker
+   volumes:
+     - ./database:/var/lib/postgresql/data
+```
