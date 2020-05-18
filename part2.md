@@ -124,3 +124,33 @@ services:
 volumes:
   database:
 ```
+
+### 2.7
+
+```shell
+ttalikka@apro13-5XHV2F > ~/devops_with_docker/2.7 > master > cat docker-compose.yml
+version: '3.5'
+
+services:
+ frontend:
+   build: ./ml-kurkkumopo-frontend
+   ports:
+     - 3000:3000
+
+ backend:
+   build: ./ml-kurkkumopo-backend
+   volumes:
+     - model:/src/model
+   ports:
+     - 5000:5000
+
+ training:
+   build: ./ml-kurkkumopo-training
+   volumes:
+     - model:/src/model
+     - images:/src/imgs
+
+volumes:
+ model:
+ images:
+```
